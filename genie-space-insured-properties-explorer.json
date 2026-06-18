@@ -1,0 +1,400 @@
+{
+  "description": "This space provides an overview of insured properties, including their locations, operational status, and key business classifications, enabling analysis of property distribution and characteristics across regions.\n\n**Capabilities:**\n- Analyze the geographic distribution of insured properties by country, region, locality, or postcode.\n- Assess operational status and business classification of insured properties.\n- Track changes to property records over time using version history.\n- Map property locations and perform spatial analyses, such as calculating distances or coverage areas.\n\n**Limitations:**\n- Does not include financial or claim-related data for insured properties.\n- Lacks detailed information on property size, construction details, or risk assessments.\n- Limited to point location data; does not provide full property boundaries.",
+  "etag": "ba7b9af92c039d2d6b3a911b596822ed6398c39f9526678dfe992282fbff2711",
+  "parent_path": "/Users/stuart.lynn@databricks.com/customers/esure/IBNR",
+  "serialized_space": {
+    "version": 2,
+    "data_sources": {
+      "tables": [
+        {
+          "identifier": "geo_sme_emea_catalog.benchmarking.buildings",
+          "column_configs": [
+            {
+              "column_name": "class",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "facade_color",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "facade_material",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "geometry",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "has_parts",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "height",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "id",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "is_underground",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "level",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "min_floor",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "min_height",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "names"
+            },
+            {
+              "column_name": "num_floors",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "num_floors_underground",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "roof_color",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "roof_direction",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "roof_height",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "roof_material",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "roof_orientation",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "roof_shape",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "sources"
+            },
+            {
+              "column_name": "subtype",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "version",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "xmax",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "xmin",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "ymax",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "ymin",
+              "enable_format_assistance": true
+            }
+          ]
+        },
+        {
+          "identifier": "geo_sme_emea_catalog.benchmarking.water",
+          "column_configs": [
+            {
+              "column_name": "class",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "geometry",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "id",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "is_intermittent",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "is_salt",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "level",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "names"
+            },
+            {
+              "column_name": "source_tags"
+            },
+            {
+              "column_name": "sources"
+            },
+            {
+              "column_name": "subtype",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "version",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "wikidata",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "xmax",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "xmin",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "ymax",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "ymin",
+              "enable_format_assistance": true
+            }
+          ]
+        },
+        {
+          "identifier": "geo_sme_emea_catalog.esure.insured_properties",
+          "column_configs": [
+            {
+              "column_name": "basic_category",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "building_street",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "country",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "geometry_4326",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "geometry_7794",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "id",
+              "enable_format_assistance": true
+            },
+            {
+              "column_name": "locality",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "operating_status",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "postcode",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "primary_name",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "region",
+              "enable_format_assistance": true,
+              "enable_entity_matching": true
+            },
+            {
+              "column_name": "version",
+              "enable_format_assistance": true
+            }
+          ]
+        }
+      ]
+    },
+    "instructions": {
+      "text_instructions": [
+        {
+          "id": "01f16a8c5e75164090a6d970af1ee49a",
+          "content": [
+            "When a user asks questions about proximity, compute distances using st_distance on projected coordinates or perform a join using the st_dwithin predicate (again, projected coordinates). Don't take shortcuts and try and use regional associations.\n",
+            "\n",
+            "Be extremely careful with partial string matching. Check that you're not retrieving irrelevant results by being too inclusive with wildcards."
+          ]
+        }
+      ],
+      "example_question_sqls": [
+        {
+          "id": "01f16a88817510eb80b0e6fb713878c7",
+          "question": [
+            "What are all the insured properties with their details and geometry transformed to EPSG:7794?"
+          ],
+          "sql": [
+            "SELECT *, st_transform(geometry, 7794) as geometry_7794 FROM geo_sme_emea_catalog.esure.insured_properties"
+          ]
+        },
+        {
+          "id": "01f16a888176152ab9a39c154dba1646",
+          "question": [
+            "What are all the insured properties with their details?"
+          ],
+          "sql": [
+            "SELECT * FROM geo_sme_emea_catalog.esure.insured_properties"
+          ]
+        }
+      ],
+      "sql_snippets": {
+        "expressions": [
+          {
+            "id": "01f16b03ea261196bf6350689af8970b",
+            "alias": "property_building_intersection",
+            "sql": [
+              "ST_INTERSECTS(`insured_properties`.`geometry_4326`, `buildings`.`geometry`)"
+            ],
+            "display_name": "property at building footprint",
+            "instruction": [
+              "WHEN_TO_USE: When physical location needs to be matched between insured property and a building record; SCOPE_TABLES: insured_properties joined to buildings via geometry (ALWAYS USE IN AN INNER OR LEFT OUTER JOIN, NEVER CROSS-JOIN AND FILTER); RISK_IF_MISUSED: Using address or ID join would miss cases where spatial overlap is the only reliable match."
+            ]
+          }
+        ]
+      }
+    },
+    "benchmarks": {
+      "questions": [
+        {
+          "id": "01f16b02908c162b901af71c50f303d3",
+          "question": [
+            "The Tyber river (Tevere in Italian) has burst its banks in multiple locations. Which of my insured properties are within 10km of the river?"
+          ],
+          "answer": [
+            {
+              "format": "SQL",
+              "content": [
+                "SELECT\n",
+                "  p.`id`,\n",
+                "  p.`primary_name`,\n",
+                "  p.`building_street`,\n",
+                "  p.`locality`,\n",
+                "  p.`postcode`,\n",
+                "  ROUND(ST_DISTANCE(p.`geometry_7794`, w.`geometry_7794`) / 1000, 2) as distance_km\n",
+                "FROM\n",
+                "  `geo_sme_emea_catalog`.`esure`.`insured_properties` p\n",
+                "    INNER JOIN (\n",
+                "      SELECT\n",
+                "        ST_TRANSFORM(ST_UNION_AGG(`geometry`), 7794) as geometry_7794\n",
+                "      FROM\n",
+                "        `geo_sme_emea_catalog`.`benchmarking`.`water`\n",
+                "      WHERE\n",
+                "        `names`.`primary` = 'Tevere'\n",
+                "    ) w\n",
+                "ON\n",
+                "  ST_DWITHIN(p.`geometry_7794`, w.`geometry_7794`, 10000)\n",
+                "ORDER BY\n",
+                "  distance_km ASC"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "01f16b022455162c81edc682cc240759",
+          "question": [
+            "For restaurants that are within 2km of the Tevere river, can you tell me which of these have a building height of less than 10m?"
+          ],
+          "answer": [
+            {
+              "format": "SQL",
+              "content": [
+                "WITH river_geom as (\n",
+                "SELECT\n",
+                "    ST_TRANSFORM(ST_UNION_AGG(`geometry`), 7794) as geometry_7794\n",
+                "    FROM\n",
+                "    `geo_sme_emea_catalog`.`benchmarking`.`water`\n",
+                "    WHERE\n",
+                "    `names`.`primary` = 'Tevere'\n",
+                "), at_risk AS (\n",
+                "SELECT\n",
+                "  p.`id`,\n",
+                "  p.`primary_name`,\n",
+                "  p.`building_street`,\n",
+                "  p.`locality`,\n",
+                "  ROUND(ST_DISTANCE(p.`geometry_7794`, w.`geometry_7794`) / 1000, 2) as distance_km,\n",
+                "  p.`geometry_4326`\n",
+                "FROM \n",
+                "  river_geom w\n",
+                "  INNER JOIN `geo_sme_emea_catalog`.`esure`.`insured_properties` p\n",
+                "    ON ST_DWITHIN(p.`geometry_7794`, w.`geometry_7794`, 2000)\n",
+                ")\n",
+                "SELECT\n",
+                "    a.`id` as property_id,\n",
+                "    a.`primary_name` as property_name,\n",
+                "    a.`building_street` as building_street,\n",
+                "    a.`locality` as locality,\n",
+                "    a.`distance_km` as distance_km,\n",
+                "    b.`id` as building_id,\n",
+                "    b.`num_floors_underground`,\n",
+                "    b.`num_floors`,\n",
+                "    b.`height`,\n",
+                "    CASE \n",
+                "        WHEN b.`height` < 10 THEN 'less than 10m'\n",
+                "        WHEN b.`height` >= 10 THEN 'more than 10m'\n",
+                "        ELSE 'unknown'\n",
+                "    END AS `height_less_than_10m`\n",
+                "FROM\n",
+                "  at_risk a INNER JOIN `geo_sme_emea_catalog`.`benchmarking`.`buildings` b\n",
+                "      ON ST_INTERSECTS(a.`geometry_4326`, b.`geometry`)"
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "space_id": "01f16a8878311f31bf41aa4ed7db021f",
+  "title": "Insured properties explorer",
+  "warehouse_id": "994009ac5de169d0"
+}

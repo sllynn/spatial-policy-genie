@@ -1,0 +1,44 @@
+# Databricks Asset Bundle for the Policy Genie geospatial demo.
+#
+# Everything that varies between workspaces is a bundle variable below. Override
+# any of them at deploy time, e.g.:
+#
+#   databricks bundle deploy -t dev \
+#     --var="catalog=main,schema=policy_demo,warehouse_id=abc123def456"
+#
+bundle:
+  name: policy-genie
+
+include:
+  - resources/*.yml
+
+# ---------------------------------------------------------------------------
+# Master variables. CATALOG and SCHEMA flow into both the notebook (as job
+# parameters -> dbutils.widgets) and the Genie space (token substitution in the
+# template). source_schema / warehouse_id / parent_path are workspace-specific
+# too, so they are variables as well.
+# ---------------------------------------------------------------------------
+variables:
+  catalog:
+    description: Catalog that holds the demo output and the Overture source tables.
+    default: geo_sme_emea_catalog
+  schema:
+    description: Schema the demo writes insured_properties into.
+    default: esure
+  source_schema:
+    description: Schema holding the Overture source tables (places, buildings, water).
+    default: benchmarking
+  warehouse_id:
+    description: SQL warehouse the Genie space runs against.
+    default: 994009ac5de169d0
+  parent_path:
+    description: Workspace folder the Genie space is created under.
+    default: /Workspace/Users/${workspace.current_user.userName}/policy-genie
+
+targets:
+  dev:
+    mode: development
+    default: true
+
+  prod:
+    mode: production

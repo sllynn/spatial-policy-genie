@@ -1,0 +1,34 @@
+# Job that materialises the demo data and (re)creates the Genie space.
+#
+#   task 1  build_data    -> runs the notebook, builds <catalog>.<schema>.insured_properties
+#   task 2  deploy_genie  -> renders the templated Genie space JSON and create-or-updates it
+#
+# Both tasks run serverless so the bundle deploys into any workspace without
+# cluster configuration. The bundle variables are passed through as notebook
+# parameters, which the notebooks read via dbutils.widgets.
+resources:
+  jobs:
+    policy_genie_job:
+      name: policy-genie
+
+      tasks:
+        - task_key: build_data
+          notebook_task:
+            notebook_path: ../Insured properties data.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}
+              source_schema: ${var.source_schema}
+
+        - task_key: deploy_genie
+          depends_on:
+            - task_key: build_data
+          notebook_task:
+            notebook_path: ../genie/deploy_genie_space.py
+            base_parameters:
+              catalog: ${var.catalog}
+              schema: ${var.schema}
+              source_schema: ${var.source_schema}
+              warehouse_id: ${var.warehouse_id}
+              parent_path: ${var.parent_path}
+              template_path: ${workspace.file_path}/genie/genie_space.template.json
