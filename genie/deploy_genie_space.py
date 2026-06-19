@@ -19,7 +19,7 @@ dbutils.widgets.text("schema", "esure")
 dbutils.widgets.text("source_schema", "benchmarking")
 dbutils.widgets.text("warehouse_id", "994009ac5de169d0")
 dbutils.widgets.text("parent_path", "")
-dbutils.widgets.text("template_path", "./genie_space.template.json")
+dbutils.widgets.text("template_path", "genie/genie_space.template.json")
 
 CATALOG = dbutils.widgets.get("catalog")
 SCHEMA = dbutils.widgets.get("schema")
@@ -71,6 +71,12 @@ print(f"Warehouse:    {request_body['warehouse_id']}")
 from databricks.sdk import WorkspaceClient
 
 w = WorkspaceClient()
+
+# The Genie API requires parent_path to be an existing workspace folder, but the
+# bundle only deploys files under ${workspace.file_path}, never this folder. Create
+# it up front (mkdirs is idempotent and creates intermediate folders).
+if PARENT_PATH:
+    w.workspace.mkdirs(PARENT_PATH)
 
 
 def find_existing_space(title, parent_path):
