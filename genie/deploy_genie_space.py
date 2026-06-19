@@ -19,7 +19,7 @@ dbutils.widgets.text("schema", "esure")
 dbutils.widgets.text("source_schema", "benchmarking")
 dbutils.widgets.text("warehouse_id", "994009ac5de169d0")
 dbutils.widgets.text("parent_path", "")
-dbutils.widgets.text("template_path", "genie/genie_space.template.json")
+dbutils.widgets.text("template_path", "genie_space.template.json")
 
 CATALOG = dbutils.widgets.get("catalog")
 SCHEMA = dbutils.widgets.get("schema")
@@ -32,8 +32,33 @@ TEMPLATE_PATH = dbutils.widgets.get("template_path")
 
 # DBTITLE 1,Render the template
 import json
+import os
 
-with open(TEMPLATE_PATH, "r", encoding="utf-8") as handle:
+
+def resolve_template(path):
+    """Find the template regardless of the working directory.
+
+    Depending on how the notebook is launched, the cwd may be the project root
+    or the notebook's own folder. Try the path as given, then relative to this
+    file's directory, then by basename in the cwd.
+    """
+    candidates = [path]
+    try:
+        here = os.path.dirname(os.path.abspath(__file__))
+        candidates.append(os.path.join(here, os.path.basename(path)))
+    except NameError:
+        pass
+    candidates.append(os.path.basename(path))
+
+    for candidate in candidates:
+        if candidate and os.path.exists(candidate):
+            return candidate
+    raise FileNotFoundError(
+        f"Could not find template '{path}'. Tried: {[c for c in candidates if c]}"
+    )
+
+
+with open(resolve_template(TEMPLATE_PATH), "r", encoding="utf-8") as handle:
     rendered = handle.read()
 
 for token, value in {
